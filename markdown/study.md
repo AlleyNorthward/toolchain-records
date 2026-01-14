@@ -8,7 +8,9 @@
 - [荧光笔](#荧光笔)
 - [水平线](#水平线)
 - [引用](#引用)
-* [嗯哼](#嗯哼)
+- [emoji](#emoji)
+- [超链接](#超链接)
+- [图片](#图片)
 
 ## 表格
 |表头|居中|展示|
@@ -54,7 +56,25 @@
 ***
 ## 引用
 > 注意
+## emoji
+:smile:
+:heart:
+:sparkles:
+## 超链接
+[Google](https://www.google.com "Google")
+<a href="https://www.google.com" title="Google">Google</a>
+## 图片
+<p align="center">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="无超链接" title="测试">
+</p>
 
+<p align="center">
+    <a href="https://github.com" target="_blank">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="有超链接" title="测试">
+    </a>
+</p>
+
+![基础版](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
 
 
 
