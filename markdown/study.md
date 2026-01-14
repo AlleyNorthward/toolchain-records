@@ -57,7 +57,16 @@
 ## 引用
 > 注意
 ## emoji
-:smile::wink:
+:smile::wink::blush::grin::sweat_smile::joy::relaxed::kiss::open_mouth::grinning:
+
+:thumbsup::clap::v::ok_hand::fist::raised_fist::pray::point_up::point_right::point_left:
+
+:sunny::cloud::rainbow::snowflake::sun_with_face::snowman::zap:
+
+:heart::fire:
+
+:rocket::star::100::computer::iphone:
+
 [参考网址](https://www.emojicopy.com/ "emoji网址")
 ## 超链接
 [Google](https://www.google.com "Google")
