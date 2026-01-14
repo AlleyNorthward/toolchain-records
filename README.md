@@ -6,7 +6,6 @@
 所以, 这个仓库用来记录各类工具链的下载流程, 以及其中遇到的各种各样的问题的. 
 格式是什么样的呢? 我也还没有想好. 想了想, 是必须要留下心理表征的, 因此需要准备很多个文件夹的, 好吧.
 
-- [git](#git)
-    - [question_git](git/question.md)
-    - [study_git](git/study.md)
-
+- [git](git/README.md)
+    - [question](git/question.md)
+    - [study](git/study.md)
