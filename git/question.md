@@ -49,6 +49,8 @@ git push -u origin main
 - 这样, 我们就完整的将本地仓库与云端仓库建立了联系. 并且, 通过这次的深入分析, 明白了分支之间如何建立的联系. 当然, 关于分支, 不再这里了的讨论范围内, 以后用到的时候再分析.
 - 我们再总结下
 
+<div align="center">
+
 |  命令行  | 含义 |
 |:----------:|:------:|
 |git init|本地创建`.git`| 
@@ -57,3 +59,5 @@ git push -u origin main
 |git remote add origin https...|与远程建立联系|
 |git branch -M main|将本地分支改名为main|
 |git push -u origin main|将远程main跟本地main建立联系|
+
+</div>
