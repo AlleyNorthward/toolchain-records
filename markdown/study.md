@@ -57,10 +57,7 @@
 ## 引用
 > 注意
 ## emoji
-:smile:
-:heart:
-:sparkles:
-📔
+:smile::wink:
 [参考网址](https://www.emojicopy.com/ "emoji网址")
 ## 超链接
 [Google](https://www.google.com "Google")
