@@ -7,6 +7,6 @@
 格式是什么样的呢? 我也还没有想好. 想了想, 是必须要留下心理表征的, 因此需要准备很多个文件夹的, 好吧.
 
 - [git](#git)
-    - [question_git](#git/question.md)
-    - [study_git](#git/study.md)
+    - [question_git](git/question.md)
+    - [study_git](git/study.md)
 
