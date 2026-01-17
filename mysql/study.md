@@ -9,6 +9,9 @@
 - [复杂查询](#复杂查询)
     - [别名](#别名)
     - [JOIN](#JOIN)
+- [函数类](#函数类)
+    - [存储过程](#存储过程)
+    - [函数](#函数)
 
 ---
 
@@ -140,6 +143,64 @@ WHERE s.status = '在住';
 - `FROM` 后, 能否跟随多个表对象?
     - 这也是我刚才的疑惑. 比如下面操作:`FROM a, b ...`. 在早期的`sql` 中, 确实是这样的. 但是后来被代替了. 被谁代替了呢? 就是`JOIN`, :joy:. 也就是说, 我们现在所做的`JOIN`, 其实本质上就是`FROM` 了多个对象.
 - 感觉`JOIN` 基础似乎也都说完了, 那就先到这里吧.
+- 当时可能觉得说完了, 但其实并没有说完, 还差了很多很多, 哈哈:joy:. 
+- 除此之外呢, 还有内连接, 外连接. 我们使用的普通连接就是内连接. 外连接包括左外连接, 右外连接. 通常情况下, 使用的是左外连接. 
+- 对于左右外连接什么意思呢? 就是以谁为主的意思. 左连接, 左侧对象为主, 右侧对象如果不包含, 也会完全显示出来. 右外连接则是翻过来. 通常情况下, 我们使用的是左连接. 
+- 如果是主集合连接子集合, 那么内连接一定等于右连接. 如果是子集合连接主集合, 则会反过来. 如果主集合的子集合连接另一个子集合, 则情况就不一定了.
+- 示例命令行如下所示.
+~~~mysql
+-- 普通连接(内连接) 此时, 相当于以少的为主, 也就是子集, 即Stay
+SELECT c.customerId, s.customerId
+FROM Customer AS c
+JOIN Stay As s ON c.customerId = s.customerId;
+-- 左连接, 此时以左侧(c, 主集合) 为主, 那么子集合(s)没有的项, 也会以`NULL` 形式展现出来.
+SELECT c.customerId, s.customerId
+FROM Customer AS c
+LEFT JOIN Stay As s ON c.customerId = s.customerId;
+-- 右连接, 此时相当于内连接, 原因我就不解释了.
+SELECT c.customerId, s.customerId
+FROM Customer AS c
+RIGHT JOIN Stay As s ON c.customerId = s.customerId
+~~~
+
+# 函数类
+- 上面的查询还没有弄完, 打算先弄函数类的了. 因为后续上面的查询, 语句会很长, 每次重写都过于复杂了, 我觉得还是得封装生函数, 然后再进行后续的复杂查询, 毕竟这样可以快速验证, 并且没有太多的复杂问题.
+## 存储过程
+- 我们先来看看如何可视化当前存储过程吧.
+~~~mysql
+SELECT ROUTINE_NAME
+FROM information_schema.ROUTINES
+WHERE ROUTINE_TYPE = 'PROCEDURE'
+  AND ROUTINE_SCHEMA = DATABASE();
+~~~
+- 其实我也不知道这些是啥, 知道就行吧(或者, 可以直接抽象成一个存储过程, 这样可视化还简单些)
+- 不过还有一个更简单的, 如下所示.
+~~~mysql
+SHOW PROCEDURE STATUS WHERE Db='database_nams'
+~~~
+- 这个确实很简单, 但问题也很明显, 就是显示效果不如上述那个, 哈哈.
+- 我们为什么要弄这个存储过程呢? 上面说了, 查询语句会很长, 每次都重写, 得不偿失, 不如封装成函数(存储过程). 不过同理, 展示所有存储过程, 命令行也很长, 我们不如也直接抽象成函数. 于是, 就有了下面的命令行.
+~~~mysql
+DELIMITER //
+
+CREATE PROCEDURE show_procedure()
+BEGIN
+  SELECT ROUTINE_NAME
+  FROM information_schema.ROUTINES
+  WHERE ROUTINE_TYPE = 'PROCEDURE'
+    AND ROUTINE_SCHEMA = DATABASE();
+END;
+//
+
+DELIMITER ;
+~~~
+- 这样, 我们直接调用`show_procedure()`, 就可以直接查看所有的过程了. 
+## 函数
+
+
+
+
+
 
 
 
