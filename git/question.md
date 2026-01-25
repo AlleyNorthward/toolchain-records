@@ -29,13 +29,14 @@ add commit -m "初次提交"
     - 有了这些基础呢, 我们再回看上面说的, 其实就很明确了. 而且, 每个命令行都是有其存在的意义的. 
         - 一开始的`git init`, 是在工作区里面创建了`.git` 文件, 但是这样不行, 我们需要提交到本地仓库中.
         - 想要提交到本地仓库, 需要先提交到暂存区, 也就是`git add` 操作.
-        - 将暂存区的内容提交到本地参考, 则需要`git commit`操作.
+        - 将暂存区的内容提交到本地仓库, 则需要`git commit`操作.
 - 这个时候, 我们的本地仓库已经创建好了. 但是还远远不够, 我们需要在云端建立仓库, 建立好了之后, 获取其网址或者`ssh`, 然后执行如下命令行.
 ~~~git
 git remote add origin https...
 ~~~
 - 这个命令, 其实很深奥. `git remote` 是一个子命令, 用于本地仓库跟远程仓库建立联系的. `origin`, 并不是命令中自带的. 这是给远程仓库命的名. 我们也可以起其它的名字. 但是需要注意, 之后我们使用的`git push origin main`, 这个`origin`, 就是指的远程仓库名. 如果改了, 这里也需要改. `origin` 是约定俗成的. 后面就是仓库的`url` 了.
 - 我们可以使用`git remote -v`, 查看远程仓库名, 也可以通过`git remote show origin`, 查看更具体信息.
+- 可以理解为`origin = https://github.com/xxx/yyy.git`, 后续我们使用的`origin`, 就相当于是这个`url` 地址了.
 - 此时, 这里的`git push origin` 等, 才有了其存在的意义, 也就是将本地仓库推送至名为`origin` 的远程仓库. 根据`url`可以获取远程地址.
 ~~~git
 git branch -M main
@@ -60,6 +61,20 @@ git push -u origin main
 |git commit -m "初次提交"|提交至本地仓库|
 |git remote add origin https...|与远程建立联系|
 |git branch -M main|将本地分支改名为main|
-|git push -u origin main|将远程main跟本地main建立联系|
+|git push -u origin main|将远程main跟本地main建立联系, 使得以后git push直接推送|
 
 </div>
+
+- 需要注意的是, `git add` 和 `git remote add` 作用对象不同, 前者作用的是本地文件(文件级别), 后者操作的是仓库(仓库级别), 后者是在本地登录一个仓库地址, 并且起一个名字为`origin`, 这样后续我们`push` 时, 可以更加方便. 
+
+
+
+
+
+
+
+
+
+
+
+
