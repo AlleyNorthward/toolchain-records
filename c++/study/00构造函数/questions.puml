@@ -1,5 +1,5 @@
-@startuml 00questions
-class 00questions{
+@startuml questions
+class questions{
   ====
   + 如下形式的实例化, 其内部可能得构造函数形式有哪些?
   `int main(){
@@ -16,15 +16,3 @@ class 00questions{
 }
 
 @enduml
-
-
-
-
-
-
-
-
-
-
-
-

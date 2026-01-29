@@ -5,6 +5,7 @@ public:
 
   double real() const { return re; }
   double imag() const { return im; }
+  complex& rr() {return *this;}
 
 private:
   double re, im;
