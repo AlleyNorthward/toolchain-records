@@ -19,6 +19,7 @@
 ## 可视化
 &emsp;&emsp;我们摆弄数据库, 增删改查, 什么最重要呢? 我觉得还是查最重要. 不论怎么, 我们都需要将数据给可视化出来, 而这个查, 就是可视化的一部分.<br>
 &emsp;&emsp;这里我们先说说基本的可视化操作, 然后在此基础上, 再进行其它的复杂操作.<br>
+&emsp;&emsp;**另补** 所有的可视化操作还是会放在这里的, 要不然太分散, 我也不好查找.<br>
 
 <div align="center">
 
@@ -27,6 +28,8 @@
 |SHOW Databases|查看所有模式|
 |SHOW Tables|查看该模式下所有表|
 |DESCRIBE bill|查看该模式下bill表中的字段A|
+|SELECT DATABASE()/status|查看当前使用的模式|
+|SHOW FULL Tables WHERE Table_Type = 'VIEW'|查看当前模式所有视图|
 
 </div>
 

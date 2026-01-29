@@ -1,0 +1,27 @@
+digraph stringMap{
+    rankdir=LR;
+    node [shape=box, style=filled, fillcolor=lightyellow];
+
+    subgraph string{
+        label="知识块1";
+        style=filled;
+        fontcolor=red; 
+        color=blue;
+        fillcolor=yellow;
+
+        A [label="概念A\n核心知识"];
+        B [label="概念B\n相关知识"];
+    }
+
+    subgraph cluster2 {
+        label="模块2";
+        style=dashed;
+        C [label="概念C\n延伸知识"];
+        D [label="概念D\n应用"];
+    }
+
+    A -> B[label = "数组退化", color = red, fontcolor = blue];
+    A -> C[label = "数组退化"];
+    B -> D[label = "你好"];
+    C -> D;
+}

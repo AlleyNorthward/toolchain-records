@@ -1,0 +1,49 @@
+digraph g{
+  graph [rankdir = LR];
+  node [shape = box, style = filled, fillcolor = lightyellow];
+
+  subgraph cluster_image1{
+    label = "案例展示1";
+    style = dashed;
+    A [image = "00/1.png"];
+    B [image = "00/2.png"];
+  }
+
+  subgraph cluster_image2{
+    label = "案例展示2";
+    style = dashed;
+    C [image = "00/3.png"];
+    D [image = "00/4.png"];
+  }
+
+  subgraph cluster_chunk{
+    label = "chunk";
+    style = dashed;
+    E [label = "对象初始化\n不得空加()如c2所示"];
+    F [label = "调用默认值构造函数\n应如c1所示"];
+    G [label = "像这个的重载构造不\n可行, c1会起冲突, \n且c2并不会调用无参的构造函数"];
+    H [label = "关于c1, c2调用方式, \n曾出现过多次问题(嵌入式中), \n这次需要明确"];
+  }
+
+  E -> F;
+  F -> G;
+  G -> H;
+
+  E -> A;
+  E -> B [color = red];
+  F -> A;
+  G -> C;
+  G -> D [color = red];
+}
+
+
+
+
+
+
+
+
+
+
+
+
