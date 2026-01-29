@@ -1,0 +1,51 @@
+digraph g{
+  graph [rankdir = LR];
+  node [shape = box, style = filled, fillcolor = lightyellow];
+
+  subgraph cluster_image1{
+    label = "案例展示1";
+    style = dashed;
+    A [image = "00/1.png"]
+  }
+
+  subgraph cluster_image2{
+    label = "案例展示2";
+    style = dashed;
+    B [image = "00/2.png"];
+    C [image = "00/3.png"];
+  }
+
+  subgraph cluster_chunk{
+    label = "chunk";
+    style = dashed;
+    D [label = "当我们写成员函数时, 一定要考虑该\n函数是否改变成员变量. 如果不改变, \n那么就毫不犹豫地添加const, 正如\n这里的real(), imag()所做的."]
+    E [label = "这样, 对于常量复数c2而言, 我们可以\n正确访问real()与imag()."]
+    F [label = "假如不添加, 那么成员函数就无法保证\n不会改变成员变量, 这样常量复数c2\n想访问real()与imag()就会报错."]
+    G [label = "逻辑上一点都不合理. 我想看看常量复数\n的实部跟虚部都没有权限吗?"]
+    H [label = "所以, 如果我只想看一眼, 毫不犹豫地\n添加const. 我可能会修改, 那么就别添加."]
+    I [label = "当然, 对于一般属性(非const), 成员\n函数是否添加const确实没有影响, 但从设计角度来看, 该添加\n的还是要添加."]
+  }
+
+  D -> E;
+  E -> F;
+  F -> G;
+  G -> H;
+  H -> I;
+
+  D -> A;
+  E -> A;
+  F -> B;
+  F -> C [color = red];
+}
+
+
+
+
+
+
+
+
+
+
+
+

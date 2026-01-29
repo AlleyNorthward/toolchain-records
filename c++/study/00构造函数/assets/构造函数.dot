@@ -5,15 +5,15 @@ digraph g{
   subgraph cluster_image1{
     label = "案例展示1";
     style = dashed;
-    A [image = "00/1.png"];
-    B [image = "00/2.png"];
+    A [image = "1.png"];
+    B [image = "2.png"];
   }
 
   subgraph cluster_image2{
     label = "案例展示2";
     style = dashed;
-    C [image = "00/3.png"];
-    D [image = "00/4.png"];
+    C [image = "3.png"];
+    D [image = "4.png"];
   }
 
   subgraph cluster_chunk{
