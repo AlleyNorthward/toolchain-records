@@ -1,4 +1,11 @@
-var msgs = "Hello TS!";
-console.log(msgs);
-
-console.log(msgs);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+let num1 = 89.2;
+let int2 = 2;
+let binaryVar = 0b1010;
+let isMan = true;
+let msg = `今年${num1}, ${int2}了`;
+let firstName = "Jack";
+let lastName = "Wang";
+let FullName = firstName + " " + lastName;
+console.log(FullName);
