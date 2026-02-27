@@ -1,0 +1,14 @@
+[
+{
+  "directory": "F:/0github/toolchain-records/algorithm/build",
+  "command": "F:\\Qt\\Qt.6.9\\Tools\\mingw1310_64\\bin\\c++.exe -IF:/0github/toolchain-records/algorithm/src -isystem F:/0github/Project-Simulation/c++/algkit/install/include -std=gnu++20 -Winvalid-pch -x c++-header -include F:/0github/toolchain-records/algorithm/build/CMakeFiles/Algorithm.dir/cmake_pch.hxx -o CMakeFiles\\Algorithm.dir\\cmake_pch.hxx.gch -c F:\\0github\\toolchain-records\\algorithm\\build\\CMakeFiles\\Algorithm.dir\\cmake_pch.hxx.cxx",
+  "file": "F:\\0github\\toolchain-records\\algorithm\\build\\CMakeFiles\\Algorithm.dir\\cmake_pch.hxx.cxx",
+  "output": "CMakeFiles\\Algorithm.dir\\cmake_pch.hxx.gch"
+},
+{
+  "directory": "F:/0github/toolchain-records/algorithm/build",
+  "command": "F:\\Qt\\Qt.6.9\\Tools\\mingw1310_64\\bin\\c++.exe -IF:/0github/toolchain-records/algorithm/src -isystem F:/0github/Project-Simulation/c++/algkit/install/include -std=gnu++20 -Winvalid-pch -include F:/0github/toolchain-records/algorithm/build/CMakeFiles/Algorithm.dir/cmake_pch.hxx -o CMakeFiles\\Algorithm.dir\\main.cpp.obj -c F:\\0github\\toolchain-records\\algorithm\\main.cpp",
+  "file": "F:\\0github\\toolchain-records\\algorithm\\main.cpp",
+  "output": "CMakeFiles\\Algorithm.dir\\main.cpp.obj"
+}
+]
