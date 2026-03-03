@@ -3,9 +3,9 @@
 #include "graph.h"
 #include "matrix.h"
 #include "timer.h"
+#include <numbers>
 #include <iostream>
 #include <list>
-#include <numbers>
 #include <queue>
 #include <string>
 #include <vector>
