@@ -1,44 +1,44 @@
 int main() {
   freopen("input.txt", "r", stdin);
-  int n;
-  std::cin >> n;
-  std::string startStr, endStr, str;
-  std::unordered_set<std::string> strList;
-  std::cin >> startStr >> endStr;
+  int n, m, s, t;
+  std::cin >> n >> m;
+  std::vector<std::list<int>> adjacency_list(n);
+  std::vector<int> inDegree(n, 0);
 
-  while (n--) {
-    std::cin >> str;
-    if (strList.count(str))
-      continue;
-    strList.insert(str);
+  while (m--) {
+    std::cin >> s >> t;
+    adjacency_list[s].push_back(t);
+    ++inDegree[t];
   }
 
-  std::queue<std::string> que;
-  que.push(startStr);
-  std::unordered_map<std::string, int> str_path_map;
-  str_path_map.insert(std::pair<std::string, int>(startStr, 1));
+  std::queue<int> que;
+  std::vector<int> result;
+  for (int i = 0; i < n; ++i) {
+    if (inDegree[i] == 0) {
+      que.push(i);
+    }
+  }
 
   while (!que.empty()) {
-    std::string word = que.front();
+    int node = que.front();
     que.pop();
-    int path = str_path_map[word];
+    result.push_back(node);
 
-    for (int i = 0; i < word.size(); ++i) {
-      std::string newWord = word;
-      for (int j = 0; j < 26; ++j) {
-        newWord[i] = j + 'a';
-        if (newWord == endStr) {
-          std::cout << path + 1 << std::endl;
-          return 0;
-        }
-
-        if (!str_path_map.count(newWord) && strList.count(newWord)) {
-          que.push(newWord);
-          str_path_map.insert(std::pair<std::string, int>(newWord, path + 1));
-        }
+    for (auto nextNode : adjacency_list[node]) {
+      --inDegree[nextNode];
+      if (inDegree[nextNode] == 0) {
+        que.push(nextNode);
       }
     }
   }
 
-  std::cout << 0 << std::endl;
+  if (result.size() == n) {
+    for (int i = 0; i < n - 1; ++i) {
+      std::cout << result[i] << " ";
+    }
+    std::cout << result[n - 1] << std::endl;
+    return 0;
+  }
+
+  std::cout << -1 << std::endl;
 }
