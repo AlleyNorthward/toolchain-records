@@ -1,0 +1,57 @@
+# Copyright (c) 2020 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+config("ohlib_public_config") {
+    include_dirs = [
+        "//utils/native/lite/include",
+        "//kernel/liteos_m/kal/cmsis",
+        "//base/iot_hardware/peripheral/interfaces/kits",
+        "../../iot_hardware_hals/include",
+        "include",
+        "."
+    ]
+    defines = [ "OH_LOG_ENABLE" ]
+}
+
+static_library("ohlib") {
+
+    sources = [
+        "src/oh_cutils.c",
+        "src/oh_log.cpp",
+        "src/oh_log_utils.cpp",
+        "src/oh_task.cpp",
+        "src/oh_mutex.cpp",
+        "src/oh_timer.cpp",
+        "src/oh_event.cpp",
+        "src/oh_semaphore.cpp",
+        "src/oh_msgqueue.cpp",
+        "src/oh_led.cpp",
+        "src/oh_pwm.cpp",
+        "src/oh_key.cpp",
+        "src/oh_motor.cpp",
+        "src/oh_adc.cpp",
+        "src/oh_oled.cpp",
+        "src/oh_gui.cpp",
+        "src/oh_wifi.cpp",
+        "src/oh_network.cpp",
+        "src/oh_socket.cpp",
+    ]
+
+    public_deps = [
+        "deps:depslib",
+    ]
+
+    public_configs = [
+        ":ohlib_public_config" 
+    ]
+}
