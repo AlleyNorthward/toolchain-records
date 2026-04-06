@@ -1,0 +1,17 @@
+!include .\include\basic.puml
+!include .\include\technology.puml
+
+*_ ICON_FLAG 算法思想
+** ICON_STAR 关键思考
+*** 题目本质问\n的是什么?
+*** 卡住我的点\n是什么?
+*** 尝试转换视角
+**  ICON_PULSE 算法模版
+*** 目标是什么?
+*** ICON_GRAPH 为了达到目标,\n最小可维护信息\n是什么?
+**** 静态信息?
+**** 动态信息?
+**** 状态定义?
+*** 不变量是什么?
+*** 状态如何转移?
+*** 什么时候终止?何时输出?

@@ -1,0 +1,6 @@
+!define ICON_FLAG <&flag>
+!define ICON_GLOBE <&globe>
+!define ICON_GRAPH <&graph>
+!define ICON_PULSE <&pulse>
+!define ICON_PEOPLE <&people>
+!define ICON_STAR <&star>

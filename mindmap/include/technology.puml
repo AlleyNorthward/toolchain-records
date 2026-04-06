@@ -1,0 +1,49 @@
+skinparam backgroundColor #150349
+skinparam defaultFontName "KaiTi"
+skinparam DefaultFontSize 18
+skinparam defaultTextAlignment center
+
+<style>
+mindmapDiagram {
+  node {
+    BackgroundColor #ebbcbc
+    BorderColor #616161
+  }
+
+  arrow {
+    LineStyle 0
+    LineThickness 2
+    LineColor #ace9ef
+  }
+
+  boxless {
+    FontStyle bold
+    FontSize 24
+    FontColor darkgreen
+  }
+
+  :depth(1) {
+    BackgroundColor #b4e11f
+  }
+
+  :depth(2) {
+    BackgroundColor #48a9e5  // 浅蓝
+  }
+
+  :depth(3) {
+    BackgroundColor #ed6d49  // 浅绿
+  }
+
+  :depth(4) {
+    BackgroundColor #f9deb2  // 浅橙
+  }
+
+  :depth(5) {
+    BackgroundColor #f3cbf9  // 浅紫
+  }
+
+  :depth(6){
+    BackgroundColor #b4f2b5
+  }
+}
+</style>
