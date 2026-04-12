@@ -1,0 +1,71 @@
+@startuml main
+skinparam defaultTextAlignment center
+
+rectangle Client{
+    abstract class Duck{
+        + flyStrategy: FlyStrategy
+        + quackStrategy: QuackStrategy
+        + swim():void
+        + {abstract}display():void
+        + performFly():void
+        + performQuack():void
+        + setFlyStrategy():void
+        + setQuackStrategy():void
+    }
+    class MallardDuck{
+        + display():void
+    }
+    class RedHeadDuck{
+        + display():void
+    }
+    class RubberDuck{
+        + display():void
+    }
+    class DecoyDuck{
+        + display():void
+    }
+    Duck <|-- MallardDuck
+    Duck <|-- RedHeadDuck
+    Duck <|-- RubberDuck
+    Duck <|-- DecoyDuck
+}
+
+rectangle FlyStrategyBehavior{
+    Interface FlyStrategy{
+        + {abstract}fly():void
+    }
+    class FlyWithWings{
+        + fly():void
+    }
+    class FlyNoWay{
+        + fly():void
+    }
+    FlyStrategy <|.. FlyWithWings
+    FlyStrategy <|.. FlyNoWay
+}
+
+rectangle QuackStrategyBehavior{
+    Interface QuackStrategy{
+        + {abstract}quack():void
+    }
+    class Quack{
+        + quack():void
+    }
+    class Squeak{
+        + quack():void
+    }
+    class MuteQuack{
+        + quack():void
+    }
+    QuackStrategy <|.. Quack
+    QuackStrategy <|.. Squeak
+    QuackStrategy <|.. MuteQuack
+}
+
+Duck --> FlyStrategy
+Duck --> QuackStrategy
+
+note "弱依赖关系, \n其它的弱依赖关系略" as N
+MallardDuck .. N
+N ..> FlyWithWings
+@enduml

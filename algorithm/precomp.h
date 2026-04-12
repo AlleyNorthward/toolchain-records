@@ -12,3 +12,7 @@
 #include <cstdio>
 #include <unordered_map>
 #include <unordered_set>
+#include <climits>
+#include <algorithm>
+#include <iterator>
+#include <stack>
