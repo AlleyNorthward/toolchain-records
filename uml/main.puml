@@ -1,71 +1,22 @@
 @startuml main
-skinparam defaultTextAlignment center
+skinparam DefaultTextAlignment center
+title 记忆层面策略活动图
 
-rectangle Client{
-    abstract class Duck{
-        + flyStrategy: FlyStrategy
-        + quackStrategy: QuackStrategy
-        + swim():void
-        + {abstract}display():void
-        + performFly():void
-        + performQuack():void
-        + setFlyStrategy():void
-        + setQuackStrategy():void
-    }
-    class MallardDuck{
-        + display():void
-    }
-    class RedHeadDuck{
-        + display():void
-    }
-    class RubberDuck{
-        + display():void
-    }
-    class DecoyDuck{
-        + display():void
-    }
-    Duck <|-- MallardDuck
-    Duck <|-- RedHeadDuck
-    Duck <|-- RubberDuck
-    Duck <|-- DecoyDuck
+rectangle 主要记忆图_Part1{
+    start
+    :Anki复习\n(什么时候复习?);
+    if (是否记住?) then (是)
+    :正常间隔复习;
+    else (否 / 遗忘)
+    :去 GitHub 查 Mapping;
+    :查找 GitHub 仓库\n(知识 \ 理解 \ 错题 \ 题目);
+    :回顾知识内容\n(具体怎么回顾?);
+    :重新理解\n(具体怎么理解?);
+    :更新 / 新增 Anki 卡片;
+    endif
+
+    :回到复习;
+
+    stop
 }
-
-rectangle FlyStrategyBehavior{
-    Interface FlyStrategy{
-        + {abstract}fly():void
-    }
-    class FlyWithWings{
-        + fly():void
-    }
-    class FlyNoWay{
-        + fly():void
-    }
-    FlyStrategy <|.. FlyWithWings
-    FlyStrategy <|.. FlyNoWay
-}
-
-rectangle QuackStrategyBehavior{
-    Interface QuackStrategy{
-        + {abstract}quack():void
-    }
-    class Quack{
-        + quack():void
-    }
-    class Squeak{
-        + quack():void
-    }
-    class MuteQuack{
-        + quack():void
-    }
-    QuackStrategy <|.. Quack
-    QuackStrategy <|.. Squeak
-    QuackStrategy <|.. MuteQuack
-}
-
-Duck --> FlyStrategy
-Duck --> QuackStrategy
-
-note "弱依赖关系, \n其它的弱依赖关系略" as N
-MallardDuck .. N
-N ..> FlyWithWings
 @enduml

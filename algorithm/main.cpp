@@ -1,61 +1,142 @@
-struct Attrs {
-  int hp;
-  int mp;
-  int attack;
-  int defense;
-};
+#include <iostream>
+#include <string>
 
-class RoleStateMemento {
-private:
-  Attrs attrs;
+using namespace std;
+
+class Pizza {
+protected:
+  string name;
 
 public:
-  RoleStateMemento(Attrs a_) : attrs(a_) {}
-  RoleStateMemento() {}
-  Attrs getAttrs() const { return attrs; }
+  virtual ~Pizza() {}
+
+  virtual void prepare() { cout << "准备原料:" << name << endl; }
+
+  virtual void bake() { cout << "烘焙 " << name << endl; }
+
+  virtual void cut() { cout << "切割 " << name << endl; }
+
+  virtual void box() { cout << "打包 " << name << endl; }
+
+  string getName() { return name; }
 };
 
-class GameRole {
-private:
-  Attrs attrs;
-
+class CheesePizzaNY : public Pizza {
 public:
-  GameRole(int hp, int mp, int attack, int defense)
-      : attrs({hp, mp, attack, defense}) {}
-  friend std::ostream &operator<<(std::ostream &os, const GameRole &g) {
-    os << "HP=" << g.attrs.hp << ", MP=" << g.attrs.mp << ", ATK="
-       << g.attrs.attack << ", DEF=" << g.attrs.defense;
-    return os;
+  CheesePizzaNY() { name = "NY Cheese Pizza"; }
+};
+
+class PepperoniPizzaNY : public Pizza {
+public:
+  PepperoniPizzaNY() { name = "NY Pepperoni Pizza"; }
+};
+
+class ClamPizzaNY : public Pizza {
+public:
+  ClamPizzaNY() { name = "NY Clam Pizza"; }
+};
+
+class VeggiePizzaNY : public Pizza {
+public:
+  VeggiePizzaNY() { name = "NY Veggie Pizza"; }
+};
+
+class CheesePizzaChicago : public Pizza {
+public:
+  CheesePizzaChicago() { name = "Chicago Cheese Pizza"; }
+};
+
+class PepperoniPizzaChicago : public Pizza {
+public:
+  PepperoniPizzaChicago() { name = "Chicago Pepperoni Pizza"; }
+};
+
+class ClamPizzaChicago : public Pizza {
+public:
+  ClamPizzaChicago() { name = "Chicago Clam Pizza"; }
+};
+
+class VeggiePizzaChicago : public Pizza {
+public:
+  VeggiePizzaChicago() { name = "Chicago Veggie Pizza"; }
+};
+
+class PizzaStore {
+public:
+  virtual ~PizzaStore() {}
+
+  Pizza *orderPizza(string type) {
+    Pizza *pizza = createPizza(type);
+
+    if (pizza == NULL) {
+      cout << "无法制作该类型Pizza" << endl;
+      return NULL;
+    }
+
+    pizza->prepare();
+    pizza->bake();
+    pizza->cut();
+    pizza->box();
+
+    cout << "完成:" << pizza->getName() << endl << endl;
+
+    return pizza;
   }
 
-  RoleStateMemento save() const { return RoleStateMemento(attrs); }
-  void restore(const RoleStateMemento &m) { attrs = m.getAttrs(); }
-  void fightBoss() {
-    attrs.hp -= 50;
-    attrs.mp -= 30;
-    attrs.attack -= 10;
-    attrs.defense -= 5;
+protected:
+  virtual Pizza *createPizza(string type) = 0;
+};
+
+class NYPizzaStore : public PizzaStore {
+protected:
+  Pizza *createPizza(string type) {
+    if (type == "cheese")
+      return new CheesePizzaNY();
+    if (type == "pepperoni")
+      return new PepperoniPizzaNY();
+    if (type == "clam")
+      return new ClamPizzaNY();
+    if (type == "veggie")
+      return new VeggiePizzaNY();
+    return NULL;
   }
 };
 
-class SaveManager {
-private:
-  RoleStateMemento memento;
-
-public:
-  void setMemento(const RoleStateMemento &m) { memento = m; }
-  RoleStateMemento getMemento() const { return memento; }
+class ChicagoPizzaStore : public PizzaStore {
+protected:
+  Pizza *createPizza(string type) {
+    if (type == "cheese")
+      return new CheesePizzaChicago();
+    if (type == "pepperoni")
+      return new PepperoniPizzaChicago();
+    if (type == "clam")
+      return new ClamPizzaChicago();
+    if (type == "veggie")
+      return new VeggiePizzaChicago();
+    return NULL;
+  }
 };
 
 int main() {
-  GameRole role(100, 80, 30, 20);
-  SaveManager manager;
-  std::cout << "进入战斗前: " << role << std::endl;
+  PizzaStore *nyStore = new NYPizzaStore();
+  PizzaStore *chicagoStore = new ChicagoPizzaStore();
 
-  manager.setMemento(role.save());
-  role.fightBoss();
-  std::cout << "战斗后: " << role << std::endl;
+  cout << "=== NY Store ===" << endl;
+  Pizza *p1 = nyStore->orderPizza("cheese");
+  delete p1;
 
-  role.restore(manager.getMemento());
-  std::cout << "恢复后: " << role << std::endl;
+  Pizza *p2 = nyStore->orderPizza("clam");
+  delete p2;
+
+  cout << "=== Chicago Store ===" << endl;
+  Pizza *p3 = chicagoStore->orderPizza("cheese");
+  delete p3;
+
+  Pizza *p4 = chicagoStore->orderPizza("veggie");
+  delete p4;
+
+  delete nyStore;
+  delete chicagoStore;
+
+  return 0;
 }

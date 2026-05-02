@@ -1,0 +1,15 @@
+# ninja log v6
+2172	3260	7977675210857716	Algorithm.exe	3e2f411905bca4c1
+255	2168	7977675191704876	CMakeFiles/Algorithm.dir/main.cpp.obj	53c10113b8999262
+275	3560	7977480930432779	CMakeFiles/Algorithm.dir/cmake_pch.hxx.gch	81981e1bc21ea3b
+27	246	7978766473568293	F:/0github/toolchain-records/algorithm/build/CMakeFiles/cmake.verify_globs	d59f862459701af3
+248	1492	7978766486875500	build.ninja	81036f8f66d7de64
+8	198	7978766488356469	F:/0github/toolchain-records/algorithm/build/CMakeFiles/cmake.verify_globs	d59f862459701af3
+227	1847	7978766490553719	CMakeFiles/Algorithm.dir/main.cpp.obj	53c10113b8999262
+1851	2943	7978766506778922	Algorithm.exe	3e2f411905bca4c1
+19	206	7986463208553623	F:/0github/toolchain-records/algorithm/build/CMakeFiles/cmake.verify_globs	d59f862459701af3
+249	1994	7986463210853098	CMakeFiles/Algorithm.dir/main.cpp.obj	53c10113b8999262
+1997	2953	7986463228329000	Algorithm.exe	3e2f411905bca4c1
+6	192	7986482753815536	F:/0github/toolchain-records/algorithm/build/CMakeFiles/cmake.verify_globs	d59f862459701af3
+212	1608	7986482755891449	CMakeFiles/Algorithm.dir/main.cpp.obj	53c10113b8999262
+1612	2523	7986482769864395	Algorithm.exe	3e2f411905bca4c1
